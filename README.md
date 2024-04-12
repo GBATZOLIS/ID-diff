@@ -36,13 +36,11 @@ main.py:
 
 If you find the code useful for your research, please consider citing
 ```bib
-@inproceedings{
-  song2021scorebased,
-  title={Score-Based Generative Modeling through Stochastic Differential Equations},
-  author={Yang Song and Jascha Sohl-Dickstein and Diederik P Kingma and Abhishek Kumar and Stefano Ermon and Ben Poole},
-  booktitle={International Conference on Learning Representations},
-  year={2021},
-  url={https://openreview.net/forum?id=PxTIG12RRHS}
+@article{stanczuk2022your,
+  title={Your diffusion model secretly knows the dimension of the data manifold},
+  author={Stanczuk, Jan and Batzolis, Georgios and Deveney, Teo and Sch{\"o}nlieb, Carola-Bibiane},
+  journal={arXiv preprint arXiv:2212.12611},
+  year={2022}
 }
 ```
 
