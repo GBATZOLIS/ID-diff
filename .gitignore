@@ -1,0 +1,43 @@
+# Compiled python modules.
+*.pyc
+
+# Byte-compiled
+_pycache__/
+.cache/
+.idea/
+
+# Python egg metadata, regenerated from source files by setuptools.
+/*.egg-info
+.eggs/
+
+# PyPI distribution artifacts.
+build/
+dist/
+
+# Tests
+.pytest_cache/
+
+# Other
+*.DS_Store
+
+#VScode files
+.vscode/
+
+
+#LOGS 
+lightning_logs/
+run_log/
+logs/
+test_logs/
+old_logs/
+tmp/
+tmp_celeb/
+
+#Wilkes submission scripts
+wilkes_scripts/main.sh
+
+#Slurm out files
+machine.file*
+slurm*
+machine.file*
+JOB*
