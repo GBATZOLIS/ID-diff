@@ -30,7 +30,7 @@ main.py:
 
 * `config` is the path to the config file. Our prescribed config files are provided in `configs/`. They are formatted according to [`ml_collections`](https://github.com/google/ml_collections) and should be quite self-explanatory.
 
-* `mode` is either "train" or "manifold_dimension". When set to "train", it starts the training of a new model, or resumes the training if model.checkpoint_path is not None. When set to "model_dimension", it estimates the ID of the dataset using the checkpoint provided in model.checkpoint_path
+* `mode` is either "train" or "manifold_dimension". When set to "train", it starts the training of a new model, or resumes the training if config.model.checkpoint_path is not None. When set to "model_dimension", it estimates the ID of the dataset using the checkpoint provided in config.model.checkpoint_path
 
 ## How to extend the code
 * **New SDEs**: inherent the `sde_lib.SDE` abstract class and implement all abstract methods. The `discretize()` method is optional and the default is Euler-Maruyama discretization. Existing sampling methods and likelihood computation will automatically work for this new SDE.
