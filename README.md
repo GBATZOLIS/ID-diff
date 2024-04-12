@@ -17,10 +17,6 @@ Run the following to install a subset of necessary python packages for our code
 pip install -r req.txt
 ```
 
-### Stats files for quantitative evaluation
-
-We provide the stats file for CIFAR-10. You can download [`cifar10_stats.npz`](https://drive.google.com/file/d/14UB27-Spi8VjZYKST3ZcT8YVhAluiFWI/view?usp=sharing)  and save it to `assets/stats/`. Check out [#5](https://github.com/yang-song/score_sde/pull/5) on how to compute this stats file for new datasets.
-
 ### Usage
 
 Train and evaluate our models through `main.py`.
@@ -29,10 +25,7 @@ Train and evaluate our models through `main.py`.
 main.py:
   --config: Training configuration.
     (default: 'None')
-  --eval_folder: The folder name for storing evaluation results
-    (default: 'eval')
-  --mode: <train|eval>: Running mode: train or eval
-  --workdir: Working directory
+  --mode: <train|manifold_dimension>: Running mode: train (for training diffusion model on your data) or manifold_dimension for estimating the ID after training the model.
 ```
 
 * `config` is the path to the config file. Our prescribed config files are provided in `configs/`. They are formatted according to [`ml_collections`](https://github.com/google/ml_collections) and should be quite self-explanatory.
