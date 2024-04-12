@@ -2,7 +2,7 @@
 
 This repo contains a PyTorch implementation for the paper [Your diffusion model secretly knows the dimension of the data manifold]([https://openreview.net/forum?id=PxTIG12RRHS](https://arxiv.org/abs/2212.12611))
 
-by [Yang Song](https://yang-song.github.io), [Jascha Sohl-Dickstein](http://www.sohldickstein.com/), [Diederik P. Kingma](http://dpkingma.com/), [Abhishek Kumar](http://users.umiacs.umd.edu/~abhishek/), [Stefano Ermon](https://cs.stanford.edu/~ermon/), and [Ben Poole](https://cs.stanford.edu/~poole/)
+by Jan Stanczuk, Georgios Batzolis, Teo Deveney and Carola-Bibiane Schönlieb
 
 --------------------
 
