@@ -28,7 +28,7 @@ main.py:
   --mode: <train|manifold_dimension>: Running mode: train or manifold_dimension
 ```
 
-* `config` is the path to the config file. The config files used in our official experiments are in the folder configs/dimension_estimation
+* `config` is the path to the config file. The config files used in our official experiments are in the folder configs/dimension_estimation/paper
 
 * `mode` is either "train" or "manifold_dimension". When set to "train", it starts the training of a new model, or resumes the training if config.model.checkpoint_path is not None. When set to "model_dimension", it estimates the ID of the dataset using the checkpoint provided in config.model.checkpoint_path
 
