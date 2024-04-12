@@ -1,6 +1,6 @@
 # Your diffusion model secretly knows the dimension of the data manifold
 
-This repo is othe official pytorch implementation of the paper [Your diffusion model secretly knows the dimension of the data manifold]([https://openreview.net/forum?id=PxTIG12RRHS](https://arxiv.org/abs/2212.12611))
+This repo is the official pytorch implementation of the paper [Your diffusion model secretly knows the dimension of the data manifold]([https://openreview.net/forum?id=PxTIG12RRHS](https://arxiv.org/abs/2212.12611))
 
 by Jan Stanczuk*, Georgios Batzolis*, Teo Deveney and Carola-Bibiane Schönlieb
 
