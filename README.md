@@ -14,7 +14,7 @@ In this work, we provide a mathematical proof that diffusion models encode data 
 
 Run the following to install a subset of necessary python packages for our code
 ```sh
-pip install -r requirements.txt
+pip install -r req.txt
 ```
 
 ### Stats files for quantitative evaluation
