@@ -1,4 +1,4 @@
-# Score-Based Generative Modeling through Stochastic Differential Equations
+# Diffusion Models Encode the Dimension of the Data Manifold
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/score-based-generative-modeling-through-1/image-generation-on-cifar-10)](https://paperswithcode.com/sota/image-generation-on-cifar-10?p=score-based-generative-modeling-through-1)
 
