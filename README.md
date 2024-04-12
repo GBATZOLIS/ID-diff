@@ -25,7 +25,7 @@ Train and evaluate our models through `main.py`.
 main.py:
   --config: Training configuration.
     (default: 'None')
-  --mode: <train|manifold_dimension>: Running mode: train (for training diffusion model on your data) or manifold_dimension for estimating the ID after training the model.
+  --mode: <train|manifold_dimension>: Running mode: train or manifold_dimension
 ```
 
 * `config` is the path to the config file. Our prescribed config files are provided in `configs/`. They are formatted according to [`ml_collections`](https://github.com/google/ml_collections) and should be quite self-explanatory.
