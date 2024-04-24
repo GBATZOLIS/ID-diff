@@ -22,25 +22,29 @@ import math
 import numpy as np
 from datetime import timedelta
 
-from configs.jan.default import get_default_configs
+from configs.default import get_default_configs
 
 def get_config():
   config = get_default_configs()
 
   #logging
   config.logging = logging = ml_collections.ConfigDict()
-  logging.log_path = '/home/gb511/projects/manifold_dimension/ksphere' #'logs/ksphere/'
-  logging.log_name = 've'
+  logging.log_path = 'logs/ksphere/'
+  logging.log_name = '10-sphere'
   logging.top_k = 5
   logging.every_n_epochs = 1000
   logging.envery_timedelta = timedelta(minutes=1)
-  logging.svd_frequency = 1000
-  logging.save_svd = True
+
+  #settings for controlling the frequency of spectrum estimation.
+  logging.svd_frequency = 50 #num epochs
+  logging.save_svd = False #choose whether to save spectra.
+  logging.svd_points = 5 #num points for spectrum estimation
 
   # training
   training = config.training
   training.mode = 'train'
   training.gpus = 1
+  training.accelerator = 'gpu'
   training.lightning_module = 'base' 
   training.batch_size = 500
   training.num_epochs = int(1e20)
@@ -77,7 +81,7 @@ def get_config():
   data.n_spheres = 1
   #data.radii = 'unit'
   data.ambient_dim=100
-  #data.manifold_dim=10
+  data.manifold_dim=10
   data.noise_std = 0.0
   data.embedding_type = 'random_isometry'
   data.dim = data.ambient_dim

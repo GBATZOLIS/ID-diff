@@ -27,20 +27,25 @@ def get_config():
 
   #logging
   config.logging = logging = ml_collections.ConfigDict()
-  logging.log_path = '/home/gb511/rds/rds-t2-cs138-LlrDsbHU5UM/gb511/projects/dimension_detection/experiments/fixed_squares_manifold/' 
-  logging.log_name = '10squares_3_5'
+  logging.log_path = 'logs/squares' 
+  logging.log_name = '10'
   logging.top_k = 5
   logging.every_n_epochs = 1000
   logging.envery_timedelta = timedelta(minutes=1)
+
+  #settings for controlling the frequency of spectrum estimation.
+  logging.svd_frequency = 50 #num epochs
+  logging.save_svd = False #choose whether to save spectra.
+  logging.svd_points = 5 #num points for spectrum estimation
 
   # training
   config.training = training = ml_collections.ConfigDict()
   training.num_nodes = 1
   training.gpus = 1
-  training.accelerator = None if training.gpus <= 1 else 'ddp'
+  training.accelerator = 'gpu'
   training.accumulate_grad_batches = 1
   training.lightning_module = 'base' 
-  config.training.batch_size = 256
+  config.training.batch_size = 128
   training.workers = 4
   training.num_epochs = 10000
   training.n_iters = 2500000
@@ -55,12 +60,12 @@ def get_config():
   training.continuous = True
   training.reduce_mean = True #look more for that setting
   training.sde = 'vesde'
-  training.visualization_callback = 'base'
+  training.visualization_callback = ['base', 'ScoreSpectrumVisualization']
   training.show_evolution = False
 
   # validation
   config.validation = validation = ml_collections.ConfigDict()
-  validation.batch_size = 256
+  validation.batch_size = 128
   validation.workers = 4
 
   # sampling
@@ -79,7 +84,7 @@ def get_config():
   evaluate.workers = 4
   evaluate.begin_ckpt = 50
   evaluate.end_ckpt = 96
-  evaluate.batch_size = 256
+  evaluate.batch_size = 128
   evaluate.enable_sampling = True
   evaluate.num_samples = 50000
   evaluate.enable_loss = True
@@ -107,7 +112,7 @@ def get_config():
   
   # model
   config.model = model = ml_collections.ConfigDict()
-  model.checkpoint_path = None #'/home/gb511/rds/rds-t2-cs138-LlrDsbHU5UM/gb511/projects/dimension_detection/experiments/fixed_squares_manifold/10squares_3_5/checkpoints/best/last.ckpt'
+  model.checkpoint_path = None
   model.sigma_min = 0.01
   model.sigma_max = 50
   model.num_scales = 1000

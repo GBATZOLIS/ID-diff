@@ -22,7 +22,7 @@ import math
 import numpy as np
 from datetime import timedelta
 
-from configs.jan.default import get_default_configs
+from configs.default import get_default_configs
 
 def get_config():
   config = get_default_configs()
@@ -35,10 +35,16 @@ def get_config():
   logging.every_n_epochs = 1000
   logging.envery_timedelta = timedelta(minutes=1)
 
+  #settings for controlling the frequency of spectrum estimation.
+  logging.svd_frequency = 50 #num epochs
+  logging.save_svd = False #choose whether to save spectra.
+  logging.svd_points = 5 #num points for spectrum estimation
+
   # training
   training = config.training
   training.mode = 'train'
   training.gpus = 1
+  training.accelerator = 'gpu'
   training.lightning_module = 'base' 
   training.batch_size = 500
   training.num_epochs = int(1e20)
@@ -47,7 +53,7 @@ def get_config():
   training.continuous = True
   training.sde = 'vesde'
   # callbacks
-  training.visualization_callback = ['ScoreSpecturmVisualization', 'KSphereEvaluation']
+  training.visualization_callback = ['ScoreSpectrumVisualization']
   training.show_evolution = False 
 
   # validation

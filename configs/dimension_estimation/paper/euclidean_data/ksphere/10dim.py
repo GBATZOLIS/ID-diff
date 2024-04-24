@@ -22,23 +22,29 @@ import math
 import numpy as np
 from datetime import timedelta
 
-from configs.jan.default import get_default_configs
+from configs.default import get_default_configs
 
 def get_config():
   config = get_default_configs()
 
   #logging
   config.logging = logging = ml_collections.ConfigDict()
-  logging.log_path = 'logs/ksphere' #'logs/ksphere/'
-  logging.log_name = '2d_toy_2'
+  logging.log_path = 'logs/ksphere/'
+  logging.log_name = '10-sphere'
   logging.top_k = 5
   logging.every_n_epochs = 1000
   logging.envery_timedelta = timedelta(minutes=1)
+
+  #settings for controlling the frequency of spectrum estimation.
+  logging.svd_frequency = 50 #num epochs
+  logging.save_svd = False #choose whether to save spectra.
+  logging.svd_points = 5 #num points for spectrum estimation
 
   # training
   training = config.training
   training.mode = 'train'
   training.gpus = 1
+  training.accelerator = 'gpu'
   training.lightning_module = 'base' 
   training.batch_size = 500
   training.num_epochs = int(1e20)
@@ -47,7 +53,7 @@ def get_config():
   training.continuous = True
   training.sde = 'vesde'
   # callbacks
-  training.visualization_callback = ['ScoreSpecturmVisualization', '2DVectorFieldVisualization', '2DSamplesVisualization']
+  training.visualization_callback = ['ScoreSpectrumVisualization', 'KSphereEvaluation']
   training.show_evolution = False 
 
   # validation
@@ -73,11 +79,11 @@ def get_config():
   data.use_data_mean=False 
 
   data.n_spheres = 1
-  data.radii = 'unit'
-  data.ambient_dim=2
-  data.manifold_dim=1
-  data.noise_std = 0
-  data.embedding_type = 'first'
+  #data.radii = 'unit'
+  data.ambient_dim=100
+  data.manifold_dim=10
+  data.noise_std = 0.0
+  data.embedding_type = 'random_isometry'
   data.dim = data.ambient_dim
   data.num_channels = 0 
   data.shape = [data.dim]
@@ -109,6 +115,8 @@ def get_config():
 
   config.seed = 42
   config.device = torch.device('cuda:0') if torch.cuda.is_available() else torch.device('cpu')
+
+  config.dim_estimation = ml_collections.ConfigDict()
 
 
   return config

@@ -15,6 +15,7 @@ from lightning_data_modules.utils import create_lightning_datamodule
 
 from lightning_modules import BaseSdeGenerativeModel, HaarMultiScaleSdeGenerativeModel, ConditionalSdeGenerativeModel, ConservativeSdeGenerativeModel, FokkerPlanckModel, KSphereGroundTruthModel #need for lightning module registration
 from lightning_modules.utils import create_lightning_module
+from pytorch_lightning.strategies import DDPStrategy
 
 from torchvision.transforms import RandomCrop, CenterCrop, ToTensor, Resize
 from torchvision.transforms.functional import InterpolationMode
@@ -53,30 +54,21 @@ def train(config, log_path, checkpoint_path, log_name=None):
       if config.model.checkpoint_path is not None and checkpoint_path is None:
         checkpoint_path = config.model.checkpoint_path
 
-      trainer = pl.Trainer(gpus=config.training.gpus,
+    trainer = pl.Trainer(accelerator = config.training.get('accelerator', 'gpu'),
+                          strategy = DDPStrategy(find_unused_parameters=False),
+                          devices = config.training.gpus,
                           num_nodes = config.training.num_nodes,
-                          accelerator = config.training.accelerator, #plugins = DDPPlugin(find_unused_parameters=False) if config.training.accelerator=='ddp' else None,
                           accumulate_grad_batches = config.training.accumulate_grad_batches,
                           gradient_clip_val = config.optim.grad_clip,
                           max_steps=config.training.n_iters, 
                           max_epochs =config.training.num_epochs,
                           callbacks=callbacks, 
                           logger = logger,
-                          resume_from_checkpoint=checkpoint_path
-                          )
-    else:  
-      trainer = pl.Trainer(gpus=config.training.gpus,
-                          num_nodes = config.training.num_nodes,
-                          accelerator = config.training.accelerator,
-                          accumulate_grad_batches = config.training.accumulate_grad_batches,
-                          gradient_clip_val = config.optim.grad_clip,
-                          max_steps=config.training.n_iters,
-                          max_epochs =config.training.num_epochs,
-                          callbacks=callbacks,
-                          logger = logger                          
+                          num_sanity_val_steps=0
                           )
 
-    trainer.fit(LightningModule, datamodule=DataModule)
+    #LightningModule = torch.compile(LightningModule)
+    trainer.fit(LightningModule, datamodule=DataModule, ckpt_path=checkpoint_path)
 
 def test(config, log_path, checkpoint_path):
     eval_log_path = os.path.join(config.eval.base_log_dir, config.data.task, config.data.dataset, config.training.conditioning_approach)

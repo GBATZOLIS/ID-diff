@@ -26,26 +26,31 @@ def get_config():
   config = ml_collections.ConfigDict()
 
   config.dim_estimation = dim_estimation = ml_collections.ConfigDict()
-  dim_estimation.num_datapoints = 100
+  #dim_estimation.num_datapoints = 100
 
   #logging
   config.logging = logging = ml_collections.ConfigDict()
-  logging.log_path = '/home/gb511/rds/rds-t2-cs138-LlrDsbHU5UM/gb511/projects/dimension_detection/experiments/fixed_gaussians_manifold'
-  logging.log_name = '100_visualise_spectrum_during_training_ampere'
+  logging.log_path = 'logs/blobs'
+  logging.log_name = '100'
   logging.top_k = 5
   logging.every_n_epochs = 1000
   logging.svd_frequency = 1
   logging.save_svd = False
   logging.envery_timedelta = timedelta(minutes=1)
 
+  #settings for controlling the frequency of spectrum estimation.
+  logging.svd_frequency = 50 #num epochs
+  logging.save_svd = False #choose whether to save spectra.
+  logging.svd_points = 5 #num points for spectrum estimation
+
   # training
   config.training = training = ml_collections.ConfigDict()
   training.num_nodes = 1
   training.gpus = 1
-  training.accelerator = None if training.gpus <= 1 else 'ddp'
+  training.accelerator = 'gpu'
   training.accumulate_grad_batches = 1
   training.lightning_module = 'base' 
-  config.training.batch_size = 256 #32
+  config.training.batch_size = 256
   training.workers = 4
   training.num_epochs = 10000
   training.n_iters = 2500000
@@ -112,7 +117,7 @@ def get_config():
   
   # model
   config.model = model = ml_collections.ConfigDict()
-  model.checkpoint_path = None #'/home/gb511/rds/rds-t2-cs138-LlrDsbHU5UM/gb511/projects/dimension_detection/experiments/fixed_gaussians_manifold/100/checkpoints/best/last.ckpt'
+  model.checkpoint_path = None
   model.sigma_min = 0.01
   model.sigma_max = 50
   model.num_scales = 1000
