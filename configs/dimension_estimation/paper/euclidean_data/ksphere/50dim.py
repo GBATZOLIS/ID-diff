@@ -30,7 +30,7 @@ def get_config():
   #logging
   config.logging = logging = ml_collections.ConfigDict()
   logging.log_path = 'logs/ksphere/'
-  logging.log_name = '10-sphere'
+  logging.log_name = '50-sphere'
   logging.top_k = 5
   logging.every_n_epochs = 1000
   logging.envery_timedelta = timedelta(minutes=1)
@@ -81,7 +81,7 @@ def get_config():
   data.n_spheres = 1
   #data.radii = 'unit'
   data.ambient_dim=100
-  data.manifold_dim=10
+  data.manifold_dim=50
   data.noise_std = 0.0
   data.embedding_type = 'random_isometry'
   data.dim = data.ambient_dim
