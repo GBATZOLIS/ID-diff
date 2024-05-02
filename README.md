@@ -1,6 +1,7 @@
-# Your diffusion model secretly knows the dimension of the data manifold
+# Diffusion Models Encode the Intrinsic Dimension of Data Manifolds
+![ICML 2024](https://img.shields.io/badge/ICML-2024-blue.svg)
 
-This repo is the official pytorch implementation of the paper [Your diffusion model secretly knows the dimension of the data manifold]([https://openreview.net/forum?id=PxTIG12RRHS](https://arxiv.org/abs/2212.12611))
+This repo is the official pytorch implementation of the paper [Diffusion Models Encode the Intrinsic Dimension of Data Manifolds]([https://openreview.net/forum?id=PxTIG12RRHS](https://arxiv.org/abs/2212.12611))
 
 by Jan Stanczuk*, Georgios Batzolis*, Teo Deveney and Carola-Bibiane Schönlieb
 
