@@ -1,4 +1,5 @@
 # Your diffusion model secretly knows the dimension of the data manifold
+![ICML 2024](https://img.shields.io/badge/ICML-2024-blue.svg)
 
 This repo is the official pytorch implementation of the paper [Your diffusion model secretly knows the dimension of the data manifold]([https://openreview.net/forum?id=PxTIG12RRHS](https://arxiv.org/abs/2212.12611))
 
