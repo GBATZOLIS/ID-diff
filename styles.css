@@ -1,0 +1,46 @@
+/* Basic Reset */
+body, h1, h2, p, img {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+}
+
+header, section, footer {
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+}
+
+header h1, header p {
+    text-align: center;
+}
+
+h2 {
+    color: #444;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centers image */
+}
+
+footer {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+footer p {
+    color: #666;
+}
