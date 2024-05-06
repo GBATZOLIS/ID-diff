@@ -1,43 +1,44 @@
-# Compiled python modules.
-*.pyc
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
 
-# Byte-compiled
-_pycache__/
+# Caches and logs
 .cache/
+.pycache__/
 .idea/
+.vscode/
 
-# Python egg metadata, regenerated from source files by setuptools.
+# OS generated files
+.DS_Store
+
+# Python egg metadata, regenerated from source files by setuptools
 /*.egg-info
 .eggs/
 
-# PyPI distribution artifacts.
+# Distribution artifacts
 build/
 dist/
 
-# Tests
+# Pytest
 .pytest_cache/
 
-# Other
-*.DS_Store
-
-#VScode files
-.vscode/
-
-
-#LOGS 
-lightning_logs/
-run_log/
+# Logs
 logs/
 test_logs/
 old_logs/
+
+# Temporary files
 tmp/
 tmp_celeb/
 
-#Wilkes submission scripts
-wilkes_scripts/main.sh
-
-#Slurm out files
-machine.file*
+# Slurm out files (specific to HPC/cluster environments)
 slurm*
-machine.file*
 JOB*
+
+# Ensure folders like css, docs, images, js, and assets are not ignored
+!docs/
+!css/
+!images/
+!js/
+!assets/
