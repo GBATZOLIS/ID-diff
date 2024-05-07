@@ -1,39 +1,78 @@
 /* Basic Reset */
-body, h1, h2, p, img {
+body, h1, h2, p, img, a {
     margin: 0;
     padding: 0;
+    text-decoration: none;
 }
 
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
     background: #f4f4f4;
     color: #333;
 }
 
-header, section, footer {
-    margin: 20px;
+.content-block {
+    margin: 20px auto; /* Centers the block horizontally */
     padding: 20px;
     background: white;
     border-radius: 8px;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    text-align: center; /* Aligns content in the center */
+    max-width: 800px; /* Limits content block width */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
 }
 
-header h1, header p {
-    text-align: center;
+.text-container {
+    padding: 20px;
+    text-align: left; /* Aligns text to the left */
+}
+
+header, footer, .text-container {
+    margin-bottom: 20px; /* Provides space at the bottom */
+}
+
+img {
+    width: calc(100% - 40px); /* Adjust for padding: 20px on each side */
+    height: auto;
+    display: block; /* Centers the image */
+    margin: 0 auto;
+}
+
+.links a, .link-box {
+    color: #0077cc;
+    font-size: 1.2em;
+    background-color: #e0f4ff; /* Light blue background for links */
+    padding: 10px 20px;
+    margin: 10px 5px;
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1);
+}
+
+.affiliations, .footnote {
+    font-size: 0.9em; /* Adjusted for readability */
+    margin-top: 10px; /* Increased spacing for visual separation */
+}
+
+.clarification, .conference {
+    font-size: 0.9em;
+    margin-top: 10px; /* Increased gap between sentences */
+    text-align: center; /* Center text */
 }
 
 h2 {
     color: #444;
+    margin-top: 20px;
+    text-align: center; /* Center section headings */
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto; /* Centers image */
+.content-block p {
+    text-align: left; /* Aligns text to the left within the centered content block */
+    max-width: 760px; /* Adjust width to account for padding */
+    margin: 0 auto; /* Centers text block if it's smaller than the container */
+    padding: 0 20px; /* Add padding to match image alignment */
+    box-sizing: border-box; /* Includes padding in width calculation */
 }
 
 footer {
@@ -41,6 +80,28 @@ footer {
     font-size: 0.8em;
 }
 
-footer p {
-    color: #666;
+.heading-container {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column; /* Stack items vertically */
+}
+
+.github-citation {
+    border: 1px solid #dfe2e5;
+    padding: 10px;
+    background-color: #f6f8fa;
+    border-radius: 6px;
+}
+
+.github-citation p {
+    margin: 0;
+}
+
+.github-citation .orange {
+    color: #6f42c1; /* GitHub purple */
+}
+
+.github-citation .blue {
+    color: #0366d6; /* GitHub blue */
 }

@@ -3,34 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Project Name</title>
+    <title>ID-diff: Diffusion Models Encode the Intrinsic Dimension of Data Manifolds</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Your Project Name</h1>
-        <p>This is a brief introduction or tagline for your project.</p>
+    <header class="content-block header">
+        <div class="heading-container">
+            <h1>ID-diff: Diffusion Models Encode the Intrinsic Dimension of Data Manifolds</h1>
+            <p>Jan Pawel Stanczuk<sup>1*</sup>, Georgios Batzolis<sup>1*</sup>, Teo Deveney<sup>2</sup>, Carola-Bibiane Schönlieb<sup>1</sup></p>
+            <p class="clarification">*Indicates equal contribution</p>
+            <p class="conference">International Conference on Machine Learning (ICML), 2024</p>
+        </div>
+        <div class="links">
+            <a href="https://arxiv.org/abs/2212.12611" target="_blank" class="link-box">Paper (arXiv)</a>
+            <a href="https://github.com/GBATZOLIS/ID-diff/tree/gh-pages" target="_blank" class="link-box">Code (released!)</a>
+        </div>
     </header>
-    
-    <section>
-        <h2>Abstract</h2>
-        <p>Provide an abstract of your project here. Describe the problem and the approach your project takes to solve it.</p>
+
+    <section class="content-block">
+        <h2 class="section-title">TL;DR</h2>
+        <img src="images/complete_teaser.png" alt="Teaser Image">
+    </section>
+
+    <section class="content-block">
+        <div class="text-container">
+            <h2 class="section-title">Abstract</h2>
+            <p class="section-content">In this work, we provide a mathematical proof that diffusion models encode data manifolds by approximating their normal bundles. Based on this observation we propose a novel method for extracting the intrinsic dimension of the data manifold from a trained diffusion model. Our insights are based on the fact that a diffusion model approximates the score function i.e., the gradient of the log density of a noise-corrupted version of the target distribution for varying levels of corruption. We prove that as the level of corruption decreases, the score function points towards the manifold, as this direction becomes the direction of maximal likelihood increase. Therefore, at low noise levels, the diffusion model provides us with an approximation of the manifold's normal bundle, allowing for an estimation of the manifold's intrinsic dimension. To the best of our knowledge, our method is the first estimator of intrinsic dimension based on diffusion models and it outperforms well established estimators in controlled experiments on both Euclidean and image data.</p>
+        </div>
+    </section>
+
+    <section class="content-block">
+        <h2 class="section-title">Main Theoretical Results</h2>
+        <img src="images/theory.png" alt="Theory Image">
+    </section>
+
+    <section class="content-block">
+        <h2 class="section-title">Experimental Results</h2>
+        <img src="images/results.png" alt="Results Image">
     </section>
     
-    <section>
-        <h2>Model Overview</h2>
-        <p>Describe your model architecture or theory briefly here.</p>
-        <img src="path_to_diagram.png" alt="Model Diagram">
+    <section class="content-block">
+        <h2 class="section-title">References</h2>
+        <p>If you find the code useful for your research, please consider citing:</p>
+        <div class="github-citation">
+            <p><span class="orange">@article</span>{<span class="blue">stanczuk2022your</span>,<br>
+            &nbsp;&nbsp;title={Your diffusion model secretly knows the dimension of the data manifold},<br>
+            &nbsp;&nbsp;author={Stanczuk, Jan and Batzolis, Georgios and Deveney, Teo and Sch{\"o}nlieb, Carola-Bibiane},<br>
+            &nbsp;&nbsp;journal={arXiv preprint arXiv:2212.12611},<br>
+            &nbsp;&nbsp;year={2022}<br>
+            }</p>
+        </div>
     </section>
     
-    <section>
-        <h2>Results</h2>
-        <p>Discuss the results your model has achieved, potentially comparing it with other methods.</p>
-        <img src="path_to_results_image.png" alt="Results Image">
-    </section>
-    
-    <footer>
-        <p>Created by Your Name | <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-    </footer>
+
 </body>
 </html>
