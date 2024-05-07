@@ -55,11 +55,18 @@ img {
     margin-top: 10px; /* Increased spacing for visual separation */
 }
 
-.clarification, .conference {
+.clarification {
     font-size: 0.9em;
     margin-top: 10px; /* Increased gap between sentences */
     text-align: center; /* Center text */
 }
+
+.conference {
+    font-size: 1.1em; /* Adjust the font size as needed */
+    margin-top: 10px; /* Increased gap between sentences */
+    text-align: center; /* Center text */
+}
+
 
 h2 {
     color: #444;
